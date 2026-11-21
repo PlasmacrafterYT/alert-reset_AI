@@ -275,7 +275,9 @@ a { color: var(--blue); }
   * { transition: none !important; }
 }
 
-/* Hero con imagen de fondo */
+/* =========================================================
+   NUEVO: Hero con imagen de fondo (público objetivo)
+   ========================================================= */
 .hero--bg {
   position: relative;
   isolation: isolate;
@@ -353,8 +355,86 @@ body.modal-open { overflow: hidden; }
     min-height: 0;
     background:
       linear-gradient(180deg, rgba(15,23,42,.94) 0%, rgba(15,23,42,.82) 55%, rgba(15,23,42,.6) 100%),
-      url("../img/hero-publico.svg") 70% center / cover no-repeat,
+      url("../img/imagen.png") 70% center / cover no-repeat,
       var(--navy);
   }
   .hero--bg .hero__visual { justify-items: start; }
+}
+
+/* ===== Inicio de sesión visible en la portada ===== */
+.hero--bg { min-height: 690px; padding: 64px 0; }
+.hero--bg .hero__inner { grid-template-columns: minmax(0,1.1fr) minmax(340px,.9fr); gap: clamp(24px,4vw,70px); align-items: center; }
+.hero--bg .hero__text { max-width: 650px; }
+.hero__login { width: 100%; align-self: center; scroll-margin-top: 90px; }
+.login-card { background: #fff; color: var(--navy); border-radius: 16px; padding: clamp(24px,3vw,38px); box-shadow: 0 20px 60px rgba(0,0,0,.28); border-top: 5px solid var(--blue-2); }
+.login-card__eyebrow { display: block; color: var(--blue); font-weight: 700; font-size: 11px; letter-spacing: .11em; margin-bottom: 12px; }
+.login-card h2 { font-size: clamp(23px,2.5vw,29px); letter-spacing: -.025em; margin-bottom: 10px; }
+.login-card .modal__desc { line-height: 1.55; margin-bottom: 26px; }
+.login-card .modal__note { font-size: 11px; line-height: 1.5; }
+.login-card__welcome { text-align: center; padding: 16px 0 8px; }
+.login-card__welcome p { color: var(--gray-600); overflow-wrap: anywhere; }
+.login-card__success { width: 58px; height: 58px; border-radius: 50%; margin: 0 auto 16px; display: grid; place-items: center; font-size: 30px; background: #d1fae5; color: var(--green); }
+.login-card__welcome h3 { font-size: 23px; }
+#loginForm[hidden], #loginWelcome[hidden] { display: none; }
+@media (max-width: 900px) {
+  .hero--bg { padding: 52px 0 64px; }
+  .hero--bg .hero__inner { grid-template-columns: 1fr; max-width: 680px; gap: 36px; }
+  .hero--bg .hero__text { max-width: 100%; }
+  .hero__login { max-width: 520px; margin-inline: auto; }
+}
+@media (max-width: 500px) {
+  .hero--bg { padding: 32px 0 52px; }
+  .hero__stats { gap: 18px; }
+  .hero__stats strong { font-size: 23px; }
+  .login-card { padding: 24px 20px; }
+}
+
+/* Espaciado de portada: separar contenido de bordes de pantalla */
+.hero--bg .hero__inner {
+  width: min(1520px, calc(100% - 112px));
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(48px, 5vw, 88px);
+}
+.hero--bg .hero__text { min-width: 0; }
+.hero--bg .hero__login { min-width: 0; }
+@media (max-width: 1100px) and (min-width: 901px) {
+  .hero--bg .hero__inner { width: calc(100% - 64px); gap: 36px; }
+  .hero--bg h1 { font-size: clamp(30px, 3.5vw, 42px); }
+}
+@media (max-width: 900px) {
+  .hero--bg .hero__inner {
+    width: calc(100% - 48px);
+    max-width: 680px;
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+@media (max-width: 500px) {
+  .hero--bg .hero__inner { width: calc(100% - 32px); }
+}
+
+/* Ajuste de portada: formulario compacto y mensaje principal breve */
+@media (min-width: 901px) {
+  .hero--bg .hero__inner {
+    width: min(1320px, calc(100% - 112px));
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 440px);
+    gap: clamp(48px, 6vw, 100px);
+    align-items: center;
+  }
+  .hero--bg .hero__login { width: 100%; max-width: 440px; justify-self: end; }
+  .hero--bg .hero__text { max-width: 610px; }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  .hero--bg .hero__inner { width: calc(100% - 64px); grid-template-columns: minmax(0, 1fr) minmax(320px, 400px); gap: 36px; }
+}
+.hero--bg h1 { font-size: clamp(32px, 3.7vw, 52px); line-height: 1.12; }
+.hero--bg .hero__lead { max-width: 510px; line-height: 1.6; }
+.login-card { padding: 28px; }
+.login-card .modal__desc { margin-bottom: 18px; }
+@media (max-width: 900px) {
+  .hero--bg .hero__login { max-width: 440px; }
+}
+@media (max-width: 500px) {
+  .login-card { padding: 24px 20px; }
 }

@@ -27,7 +27,7 @@ alertreset-ai/
 - **Textos y secciones:** `index.html`
 - **Colores:** variables al inicio de `css/styles.css` (`:root`), tomadas de la guía de estilos del informe (sección 4.1.1)
 - **Imagen del hero (público objetivo):** `img/hero-publico.svg`. Para usar una foto propia, guárdala en `img/` y cambia la ruta en `.hero--bg` dentro de `css/styles.css`.
-- **Inicio de sesión:** modal al final de `index.html` y sección 4 de `js/main.js` (`MIN_PASS` define el mínimo de caracteres). Es demostrativo: acepta cualquier correo válido y una contraseña de 6+ caracteres; solo guarda el correo en el navegador.
+- **Inicio de sesión:** formulario integrado en la portada de `index.html` y sección 4 de `js/main.js` (`MIN_PASS` define el mínimo de caracteres). Es demostrativo: acepta cualquier correo válido y una contraseña de 6+ caracteres; solo guarda el correo en el navegador.
 - **Umbrales de la demo:** `FAST_MS` y `FAST_STREAK` al inicio de la sección 3 de `js/main.js`
 
 ## Subir a GitHub Pages

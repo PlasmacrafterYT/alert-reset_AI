@@ -277,41 +277,24 @@ function clearSession() {
   login.sessionEmail = null;
 }
 
-/* --- estado visual de la barra de navegación --- */
+/* --- estado de sesión y formulario visible en la portada --- */
 function renderAuth() {
   const email = login.sessionEmail || readSession();
   login.sessionEmail = email;
-  if (email) {
-    login.user.hidden = false;
-    login.user.textContent = "Hola, " + email.split("@")[0];
-    login.btn.textContent = "Cerrar sesión";
-    login.btn.setAttribute("aria-haspopup", "false");
-  } else {
-    login.user.hidden = true;
-    login.user.textContent = "";
-    login.btn.textContent = "Iniciar sesión";
-    login.btn.setAttribute("aria-haspopup", "dialog");
-  }
-}
-
-/* --- modal --- */
-function focusables() {
-  return [...login.modal.querySelectorAll(
-    'button:not([disabled]), input:not([disabled]), a[href]'
-  )].filter((n) => n.offsetParent !== null);
+  const welcome = el("loginWelcome");
+  const loggedIn = Boolean(email);
+  login.user.hidden = !loggedIn;
+  login.user.textContent = loggedIn ? "Hola, " + email.split("@")[0] : "";
+  login.btn.textContent = loggedIn ? "Cerrar sesión" : "Iniciar sesión";
+  login.form.hidden = loggedIn;
+  welcome.hidden = !loggedIn;
+  if (loggedIn) el("loginWelcomeText").textContent = "Has iniciado sesión como " + email + ". Ya puedes explorar AlertReset AI.";
 }
 function openModal() {
-  login.lastFocus = document.activeElement;
-  resetForm();
-  login.modal.hidden = false;
-  document.body.classList.add("modal-open");
-  login.email.focus();
+  login.modal.scrollIntoView({ behavior: "smooth", block: "center" });
+  if (!login.sessionEmail) login.email.focus({ preventScroll: true });
 }
-function closeModal() {
-  login.modal.hidden = true;
-  document.body.classList.remove("modal-open");
-  if (login.lastFocus && document.contains(login.lastFocus)) login.lastFocus.focus();
-}
+function closeModal() { login.pass.value = ""; }
 function resetForm() {
   login.form.reset();
   [login.emailErr, login.passErr, login.formErr].forEach((n) => { n.hidden = true; n.textContent = ""; });
@@ -356,14 +339,12 @@ login.btn.addEventListener("click", () => {
   navToggle.setAttribute("aria-expanded", "false");
   if (login.sessionEmail) {      // ya hay sesión → cerrar sesión
     clearSession();
+    resetForm();
     renderAuth();
+    openModal();
   } else {
     openModal();
   }
-});
-
-login.modal.addEventListener("click", (e) => {
-  if (e.target.closest("[data-close-modal]")) closeModal();
 });
 
 login.toggle.addEventListener("click", () => {
@@ -371,17 +352,6 @@ login.toggle.addEventListener("click", () => {
   login.pass.type = show ? "text" : "password";
   login.toggle.textContent = show ? "Ocultar" : "Mostrar";
   login.toggle.setAttribute("aria-pressed", String(show));
-});
-
-document.addEventListener("keydown", (e) => {
-  if (login.modal.hidden) return;
-  if (e.key === "Escape") { closeModal(); return; }
-  if (e.key === "Tab") {          // mantener el foco dentro del modal
-    const f = focusables();
-    const first = f[0], last = f[f.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-  }
 });
 
 renderAuth();
