@@ -18,9 +18,9 @@
     <div class="container navbar__inner">
       <a href="#inicio" class="brand" aria-label="AlertReset AI - Inicio">
         <span class="brand__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
         </span>
-        <span class="brand__name">AlertReset <strong>AI</strong></span>
+        <span>AlertReset <strong>AI</strong></span>
       </a>
 
       <button class="navbar__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú">
@@ -46,8 +46,8 @@
 
   <main id="contenido">
     <!-- HERO -->
-    <section class="hero hero--bg" aria-labelledby="hero-title">
-      <div class="container hero__inner">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
         <div class="hero__text">
           <span class="tag tag--light">Ciberseguridad adaptativa</span>
           <h1 id="hero-title">Alertas claras cuando más importan</h1>
@@ -65,32 +65,33 @@
           </ul>
         </div>
 
-        <aside class="hero__login" id="loginModal" aria-labelledby="loginTitle">
+        <aside class="hero__login" id="loginCard" aria-labelledby="loginTitle">
           <div class="login-card">
             <span class="login-card__eyebrow">BIENVENIDO A ALERTRESET AI</span>
             <h2 id="loginTitle">Inicia sesión para comenzar</h2>
-            <p id="loginDesc" class="modal__desc">Accede a la demostración de seguridad adaptativa.</p>
-      <form id="loginForm" novalidate>
-        <div class="field">
-          <label for="loginEmail">Correo electrónico</label>
-          <input type="email" id="loginEmail" name="email" autocomplete="email" placeholder="nombre@correo.com" required aria-describedby="emailError" />
-          <p class="field__error" id="emailError" role="alert" hidden></p>
-        </div>
-        <div class="field">
-          <label for="loginPass">Contraseña</label>
-          <div class="field__pass">
-            <input type="password" id="loginPass" name="password" autocomplete="current-password" placeholder="Mínimo 6 caracteres" required aria-describedby="passError" />
-            <button type="button" class="field__toggle" id="togglePass" aria-pressed="false">Mostrar</button>
-          </div>
-          <p class="field__error" id="passError" role="alert" hidden></p>
-        </div>
-        <label class="check">
-          <input type="checkbox" id="loginRemember" /> Mantener la sesión iniciada
-        </label>
-        <p class="field__error" id="formError" role="alert" hidden></p>
-        <button type="submit" class="btn btn--primary btn--lg btn--block">Entrar</button>
-        <p class="modal__note">Acceso de demostración. Tus datos de acceso no se envían a ningún servidor.</p>
-      </form>
+            <p class="login-card__desc">Accede a la demostración de seguridad adaptativa.</p>
+
+            <form id="loginForm" novalidate>
+              <div class="field">
+                <label for="loginEmail">Correo electrónico</label>
+                <input type="email" id="loginEmail" name="email" autocomplete="email" placeholder="nombre@correo.com" required aria-describedby="emailError" />
+                <p class="field__error" id="emailError" role="alert" hidden></p>
+              </div>
+              <div class="field">
+                <label for="loginPass">Contraseña</label>
+                <div class="field__pass">
+                  <input type="password" id="loginPass" name="password" autocomplete="current-password" placeholder="Mínimo 6 caracteres" required aria-describedby="passError" />
+                  <button type="button" class="field__toggle" id="togglePass" aria-pressed="false">Mostrar</button>
+                </div>
+                <p class="field__error" id="passError" role="alert" hidden></p>
+              </div>
+              <label class="check">
+                <input type="checkbox" id="loginRemember" /> Mantener la sesión iniciada
+              </label>
+              <button type="submit" class="btn btn--primary btn--lg btn--block">Entrar</button>
+              <p class="login-card__note">Acceso de demostración. Tus datos de acceso no se envían a ningún servidor.</p>
+            </form>
+
             <div class="login-card__welcome" id="loginWelcome" hidden>
               <div class="login-card__success" aria-hidden="true">✓</div>
               <h3>¡Bienvenido!</h3>
@@ -106,7 +107,7 @@
     <section class="section section--alt" id="problema">
       <div class="container">
         <header class="section__head">
-          <span class="tag tag--soft">El problema</span>
+          <span class="tag">El problema</span>
           <h2>Cuando todas las alertas se ven iguales, ninguna se lee</h2>
           <p>
             La exposición repetida a mensajes idénticos genera habituación: aceptamos permisos por
@@ -116,22 +117,22 @@
 
         <div class="grid grid--3">
           <article class="card">
-            <div class="card__icon card__icon--warn">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
             </div>
             <h3>Piloto automático</h3>
             <p>Presionar «Aceptar» en fracciones de segundo, sin procesar el texto del mensaje.</p>
           </article>
           <article class="card">
-            <div class="card__icon card__icon--warn">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M7 3h14v14"/></svg>
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M7 3h14v14"/></svg>
             </div>
             <h3>Exceso de avisos</h3>
             <p>Mostrar alertas para acciones triviales resta valor a las que realmente importan.</p>
           </article>
           <article class="card">
-            <div class="card__icon card__icon--warn">
-              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M12 8v4M12 16h.01"/></svg>
+            <div class="card__icon">
+              <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M12 8v4M12 16h.01"/></svg>
             </div>
             <h3>Riesgo real</h3>
             <p>Filtración de datos, descargas maliciosas o borrados irreversibles por simple inercia.</p>
@@ -144,7 +145,7 @@
     <section class="section" id="como-funciona">
       <div class="container">
         <header class="section__head">
-          <span class="tag tag--soft">¿Cómo funciona?</span>
+          <span class="tag">¿Cómo funciona?</span>
           <h2>Un motor de IA en cuatro pasos</h2>
           <p>De analizar tu comportamiento a mostrar la advertencia adecuada en el momento justo.</p>
         </header>
@@ -152,7 +153,7 @@
         <ol class="steps">
           <li class="step">
             <div class="step__icon">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
             </div>
             <span class="step__num">Paso 1</span>
             <h3>Análisis de interacción</h3>
@@ -160,7 +161,7 @@
           </li>
           <li class="step">
             <div class="step__icon">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
             </div>
             <span class="step__num">Paso 2</span>
             <h3>Detección de habituación</h3>
@@ -168,7 +169,7 @@
           </li>
           <li class="step">
             <div class="step__icon">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg>
             </div>
             <span class="step__num">Paso 3</span>
             <h3>Evaluación de riesgo</h3>
@@ -176,7 +177,7 @@
           </li>
           <li class="step">
             <div class="step__icon">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg>
             </div>
             <span class="step__num">Paso 4</span>
             <h3>Advertencia adaptada</h3>
@@ -190,7 +191,7 @@
     <section class="section section--alt" id="demo">
       <div class="container">
         <header class="section__head">
-          <span class="tag tag--soft">Demo interactiva</span>
+          <span class="tag">Demo interactiva</span>
           <h2>Compruébalo tú mismo</h2>
           <p>
             Acepta las alertas rutinarias lo más rápido que puedas. Cuando el sistema detecte tu
@@ -198,7 +199,7 @@
           </p>
         </header>
 
-        <div class="demo" id="demo-app">
+        <div class="demo">
           <div class="demo__stage">
             <div class="demo__status" aria-live="polite">
               <span>Alerta <strong id="demoCount">0</strong> de 5</span>
@@ -206,14 +207,12 @@
             </div>
 
             <div class="alert alert--routine" id="alertBox" role="alertdialog" aria-labelledby="alertTitle" aria-describedby="alertText" hidden>
-              <div class="alert__head" id="alertHead">
-                <span class="alert__badge" id="alertBadge">Riesgo bajo</span>
-              </div>
+              <span class="alert__badge" id="alertBadge">Riesgo bajo</span>
               <h3 id="alertTitle">Confirmación</h3>
               <p id="alertText"></p>
               <p class="alert__reason" id="alertReason" hidden></p>
               <div class="alert__meta" id="alertMeta" hidden></div>
-              <div class="alert__actions" id="alertActions">
+              <div class="alert__actions">
                 <button class="btn btn--outline" id="btnCancel">Cancelar</button>
                 <button class="btn btn--primary" id="btnAccept">Aceptar</button>
               </div>
@@ -239,13 +238,13 @@
     <section class="section" id="soluciones">
       <div class="container">
         <header class="section__head">
-          <span class="tag tag--soft">Soluciones</span>
+          <span class="tag">Soluciones</span>
           <h2>Una propuesta para cada perfil</h2>
           <p>AlertReset AI se adapta a quienes reciben las alertas y a quienes las diseñan.</p>
         </header>
 
         <div class="grid grid--3">
-          <article class="card card--segment">
+          <article class="card">
             <span class="segment">Segmento 1</span>
             <h3>Estudiantes y jóvenes</h3>
             <p>Descargas e instalaciones más seguras sin perder el ritmo de estudio.</p>
@@ -255,7 +254,7 @@
               <li>Ruptura del patrón visual en riesgo alto</li>
             </ul>
           </article>
-          <article class="card card--segment">
+          <article class="card">
             <span class="segment">Segmento 2</span>
             <h3>Trabajadores y profesionales</h3>
             <p>Menos interrupciones rutinarias y más atención en lo que de verdad importa.</p>
@@ -265,7 +264,7 @@
               <li>Agrupación de avisos de bajo impacto</li>
             </ul>
           </article>
-          <article class="card card--segment">
+          <article class="card">
             <span class="segment">Segmento 3</span>
             <h3>TI, ciberseguridad y UX</h3>
             <p>Datos reales sobre habituación para ajustar políticas sin frustrar la usabilidad.</p>
@@ -288,22 +287,22 @@
         </header>
         <div class="grid grid--4">
           <div class="benefit">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <svg viewBox="0 0 24 24" width="28" height="28"><path d="M20 6L9 17l-5-5"/></svg>
             <h3>Decisiones informadas</h3>
             <p>Del clic automático a una validación consciente de las consecuencias.</p>
           </div>
           <div class="benefit">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+            <svg viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
             <h3>Atención en lo crítico</h3>
             <p>Interviene únicamente cuando hay habituación y alto riesgo a la vez.</p>
           </div>
           <div class="benefit">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <svg viewBox="0 0 24 24" width="28" height="28"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             <h3>Flujos sin fricción</h3>
             <p>Las tareas rutinarias de bajo riesgo continúan sin interrupciones.</p>
           </div>
           <div class="benefit">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            <svg viewBox="0 0 24 24" width="28" height="28"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
             <h3>Métricas accionables</h3>
             <p>Tiempos de respuesta, decisiones y señales de habituación en un solo panel.</p>
           </div>
@@ -315,7 +314,7 @@
     <section class="section" id="seguridad">
       <div class="container security">
         <div>
-          <span class="tag tag--soft">Seguridad y accesibilidad</span>
+          <span class="tag">Seguridad y accesibilidad</span>
           <h2>Diseñado con criterios inclusivos y respetuoso con tus datos</h2>
           <p>
             AlertReset AI registra solo las métricas necesarias para detectar habituación y no
@@ -334,7 +333,7 @@
 
     <!-- CTA FINAL -->
     <section class="cta">
-      <div class="container cta__inner">
+      <div class="container">
         <h2>¿Listo para recuperar la atención de tus usuarios?</h2>
         <p>Prueba la demo y descubre cómo una advertencia adaptativa cambia la forma de decidir.</p>
         <a href="#demo" class="btn btn--light btn--lg">Probar demo</a>
